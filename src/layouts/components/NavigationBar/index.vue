@@ -9,9 +9,6 @@ import Hamburger from "../Hamburger/index.vue"
 import Breadcrumb from "../Breadcrumb/index.vue"
 import Sidebar from "../Sidebar/index.vue"
 import Notify from "@/components/Notify/index.vue"
-import ThemeSwitch from "@/components/ThemeSwitch/index.vue"
-import Screenfull from "@/components/Screenfull/index.vue"
-import SearchMenu from "@/components/SearchMenu/index.vue"
 import { useDevice } from "@/hooks/useDevice"
 import { useLayoutMode } from "@/hooks/useLayoutMode"
 
@@ -21,7 +18,7 @@ const router = useRouter()
 const appStore = useAppStore()
 const userStore = useUserStore()
 const settingsStore = useSettingsStore()
-const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToRefs(settingsStore)
+const { showNotify } = storeToRefs(settingsStore)
 
 /** 切换侧边栏 */
 const toggleSidebar = () => {
@@ -46,9 +43,6 @@ const logout = () => {
     <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" />
     <Sidebar v-if="isTop && !isMobile" class="sidebar" />
     <div class="right-menu">
-      <SearchMenu v-if="showSearchMenu" class="right-menu-item" />
-      <Screenfull v-if="showScreenfull" class="right-menu-item" />
-      <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
       <Notify v-if="showNotify" class="right-menu-item" />
       <el-dropdown class="right-menu-item">
         <div class="right-menu-avatar">
@@ -57,14 +51,14 @@ const logout = () => {
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <a target="_blank" href="https://github.com/un-pany/v3-admin-vite">
-              <el-dropdown-item>GitHub</el-dropdown-item>
+            <a target="_blank" href="#">
+              <el-dropdown-item>Profile</el-dropdown-item>
             </a>
-            <a target="_blank" href="https://gitee.com/un-pany/v3-admin-vite">
-              <el-dropdown-item>Gitee</el-dropdown-item>
+            <a target="_blank" href="#">
+              <el-dropdown-item>Activities</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout">
-              <span style="display: block">退出登录</span>
+              <span style="display: block">Log Out</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>

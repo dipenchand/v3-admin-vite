@@ -3,14 +3,12 @@ import { reactive, ref } from "vue"
 import { useRouter } from "vue-router"
 import { useUserStore } from "@/store/modules/user"
 import { type FormInstance, type FormRules } from "element-plus"
-// import { getLoginCodeApi } from "@/api/login"
+import { User, Lock } from "@element-plus/icons-vue"
 import { type LoginRequestData } from "@/api/login/types/login"
-import ThemeSwitch from "@/components/ThemeSwitch/index.vue"
-import Owl from "./components/Owl.vue"
 import { useFocus } from "./hooks/useFocus"
 
 const router = useRouter()
-const { isFocus, handleBlur, handleFocus } = useFocus()
+const { handleBlur, handleFocus } = useFocus()
 
 const loginFormRef = ref<FormInstance | null>(null)
 const loading = ref(false)
@@ -26,7 +24,7 @@ const loginFormRules: FormRules = {
     { min: 8, max: 16, message: "8 to 16 characters in length", trigger: "blur" }
   ]
 }
-/** 登录逻辑 */
+
 const handleLogin = () => {
   loginFormRef.value?.validate((valid: boolean, fields) => {
     if (valid) {
@@ -51,8 +49,6 @@ const handleLogin = () => {
 
 <template>
   <div class="login-container">
-    <ThemeSwitch class="theme-switch" />
-    <Owl :close-eyes="isFocus" />
     <div class="login-card">
       <div class="title">
         <img src="@/assets/layouts/logo-text-2.png" />

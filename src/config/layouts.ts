@@ -42,11 +42,11 @@ const defaultSettings: LayoutSettings = {
   showFooter: true,
   showLogo: true,
   showNotify: true,
-  showThemeSwitch: true,
+  showThemeSwitch: false,
   showScreenfull: true,
   showSearchMenu: true,
   cacheTagsView: false,
-  showWatermark: true,
+  showWatermark: false,
   showGreyMode: false,
   showColorWeakness: false
 }
