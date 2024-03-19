@@ -3,13 +3,12 @@ import { computed } from "vue"
 import { storeToRefs } from "pinia"
 import { useAppStore } from "@/store/modules/app"
 import { useSettingsStore } from "@/store/modules/settings"
-import { AppMain, NavigationBar, Sidebar, TagsView, Logo } from "./components"
+import { AppMain, NavigationBar, Sidebar, Logo } from "./components"
 
 const appStore = useAppStore()
 const settingsStore = useSettingsStore()
-const { showTagsView, showLogo } = storeToRefs(settingsStore)
+const { showLogo } = storeToRefs(settingsStore)
 
-/** 定义计算属性 layoutClasses，用于控制布局的类名 */
 const layoutClasses = computed(() => {
   return {
     hideSidebar: !appStore.sidebar.opened
@@ -19,19 +18,14 @@ const layoutClasses = computed(() => {
 
 <template>
   <div :class="layoutClasses" class="app-wrapper">
-    <!-- 头部导航栏和标签栏 -->
     <div class="fixed-header layout-header">
       <Logo v-if="showLogo" :collapse="false" class="logo" />
       <div class="content">
         <NavigationBar />
-        <TagsView v-show="showTagsView" />
       </div>
     </div>
-    <!-- 主容器 -->
-    <div :class="{ hasTagsView: showTagsView }" class="main-container">
-      <!-- 左侧边栏 -->
+    <div class="main-container">
       <Sidebar class="sidebar-container" />
-      <!-- 页面主体内容 -->
       <AppMain class="app-main" />
     </div>
   </div>

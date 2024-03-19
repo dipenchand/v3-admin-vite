@@ -3,15 +3,14 @@ import { computed } from "vue"
 import { storeToRefs } from "pinia"
 import { useAppStore } from "@/store/modules/app"
 import { useSettingsStore } from "@/store/modules/settings"
-import { AppMain, NavigationBar, Sidebar, TagsView } from "./components"
+import { AppMain, NavigationBar, Sidebar } from "./components"
 import { useDevice } from "@/hooks/useDevice"
 
 const { isMobile } = useDevice()
 const appStore = useAppStore()
 const settingsStore = useSettingsStore()
-const { showTagsView, fixedHeader } = storeToRefs(settingsStore)
+const { fixedHeader } = storeToRefs(settingsStore)
 
-/** 定义计算属性 layoutClasses，用于控制布局的类名 */
 const layoutClasses = computed(() => {
   return {
     hideSidebar: !appStore.sidebar.opened,
@@ -21,7 +20,6 @@ const layoutClasses = computed(() => {
   }
 })
 
-/** 用于处理点击 mobile 端侧边栏遮罩层的事件 */
 const handleClickOutside = () => {
   appStore.closeSidebar(false)
 }
@@ -29,18 +27,12 @@ const handleClickOutside = () => {
 
 <template>
   <div :class="layoutClasses" class="app-wrapper">
-    <!-- mobile 端侧边栏遮罩层 -->
     <div v-if="layoutClasses.mobile && layoutClasses.openSidebar" class="drawer-bg" @click="handleClickOutside" />
-    <!-- 左侧边栏 -->
     <Sidebar class="sidebar-container" />
-    <!-- 主容器 -->
-    <div :class="{ hasTagsView: showTagsView }" class="main-container">
-      <!-- 头部导航栏和标签栏 -->
+    <div class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }" class="layout-header">
         <NavigationBar />
-        <TagsView v-show="showTagsView" />
       </div>
-      <!-- 页面主体内容 -->
       <AppMain class="app-main" />
     </div>
   </div>

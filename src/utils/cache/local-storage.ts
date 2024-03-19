@@ -17,18 +17,14 @@ export const setConfigLayout = (settings: LayoutSettings) => {
 export const removeConfigLayout = () => {
   localStorage.removeItem(CacheKey.CONFIG_LAYOUT)
 }
-//#endregion
 
-//#region 侧边栏状态
 export const getSidebarStatus = () => {
   return localStorage.getItem(CacheKey.SIDEBAR_STATUS)
 }
 export const setSidebarStatus = (sidebarStatus: SidebarOpened | SidebarClosed) => {
   localStorage.setItem(CacheKey.SIDEBAR_STATUS, sidebarStatus)
 }
-//#endregion
 
-//#region 正在应用的主题名称
 export const getActiveThemeName = () => {
   return localStorage.getItem(CacheKey.ACTIVE_THEME_NAME) as ThemeName | null
 }
