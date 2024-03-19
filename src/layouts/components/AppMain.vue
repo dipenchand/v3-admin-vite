@@ -19,7 +19,7 @@
 
 .app-main {
   width: 100%;
-  background-color: var(--v3-body-bg-color);
+  background-color: var(--cfm-body-bg-color);
   display: flex;
 }
 

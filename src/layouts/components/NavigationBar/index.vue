@@ -69,9 +69,9 @@ const logout = () => {
 
 <style lang="scss" scoped>
 .navigation-bar {
-  height: var(--v3-navigationbar-height);
+  height: var(--cfm-navigationbar-height);
   overflow: hidden;
-  background: var(--v3-header-bg-color);
+  background: var(--cfm-header-bg-color);
   display: flex;
   justify-content: space-between;
   .hamburger {

@@ -10,9 +10,9 @@ import { useDevice } from "@/hooks/useDevice"
 import { useLayoutMode } from "@/hooks/useLayoutMode"
 import { getCssVariableValue } from "@/utils"
 
-const v3SidebarMenuBgColor = getCssVariableValue("--v3-sidebar-menu-bg-color")
-const v3SidebarMenuTextColor = getCssVariableValue("--v3-sidebar-menu-text-color")
-const v3SidebarMenuActiveTextColor = getCssVariableValue("--v3-sidebar-menu-active-text-color")
+const v3SidebarMenuBgColor = getCssVariableValue("--cfm-sidebar-menu-bg-color")
+const v3SidebarMenuTextColor = getCssVariableValue("--cfm-sidebar-menu-text-color")
+const v3SidebarMenuActiveTextColor = getCssVariableValue("--cfm-sidebar-menu-active-text-color")
 
 const { isMobile } = useDevice()
 const { isLeft, isTop } = useLayoutMode()
@@ -35,10 +35,10 @@ const backgroundColor = computed(() => (isLeft.value ? v3SidebarMenuBgColor : un
 const textColor = computed(() => (isLeft.value ? v3SidebarMenuTextColor : undefined))
 const activeTextColor = computed(() => (isLeft.value ? v3SidebarMenuActiveTextColor : undefined))
 const sidebarMenuItemHeight = computed(() => {
-  return !isTop.value ? "var(--v3-sidebar-menu-item-height)" : "var(--v3-navigationbar-height)"
+  return !isTop.value ? "var(--cfm-sidebar-menu-item-height)" : "var(--cfm-navigationbar-height)"
 })
 const sidebarMenuHoverBgColor = computed(() => {
-  return !isTop.value ? "var(--v3-sidebar-menu-hover-bg-color)" : "transparent"
+  return !isTop.value ? "var(--cfm-sidebar-menu-hover-bg-color)" : "transparent"
 })
 const tipLineWidth = computed(() => {
   return !isTop.value ? "2px" : "0px"
@@ -78,14 +78,14 @@ const hiddenScrollbarVerticalBar = computed(() => {
     left: 0;
     width: v-bind(tipLineWidth);
     height: 100%;
-    background-color: var(--v3-sidebar-menu-tip-line-bg-color);
+    background-color: var(--cfm-sidebar-menu-tip-line-bg-color);
   }
 }
 
 .has-logo {
   .el-scrollbar {
     // 多 1% 是为了在左侧模式时侧边栏最底部不显示 1px 左右的白色线条
-    height: calc(101% - var(--v3-header-height));
+    height: calc(101% - var(--cfm-header-height));
   }
 }
 
