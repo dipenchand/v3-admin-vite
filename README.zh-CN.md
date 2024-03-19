@@ -1,17 +1,17 @@
 <div align="center">
-  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/layouts/logo.png">
-  <h1>V3 Admin Vite</h1>
+  <img alt="Creative Collection Logo" width="120" height="120" src="./src/assets/layouts/logo.png">
+  <h1>Creative Collection</h1>
   <span><a href="./README.md">English</a> | 中文</span>
 </div>
 
 ## ⚡ 简介
 
-V3 Admin Vite 是一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、Pinia 和 Vite 等主流技术
+Creative Collection 是一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、Pinia 和 Vite 等主流技术
 
 - Vue Cli 5.x 版: [v3-admin](https://github.com/un-pany/v3-admin)
 - Electron 桌面版: [v3-electron-vite](https://github.com/un-pany/v3-electron-vite)
 
-国内仓库：[Gitee](https://gitee.com/un-pany/v3-admin-vite)
+国内仓库：[Gitee](https://gitee.com/un-pany/creative-collection)
 
 ## 📚 文档
 
@@ -20,9 +20,9 @@ V3 Admin Vite 是一个免费开源的中后台管理系统基础解决方案，
 
 ## 📺 在线预览
 
-| 位置         | 账号            | 链接                                            |
-| ------------ | --------------- | ----------------------------------------------- |
-| github-pages | admin 或 editor | [链接](https://un-pany.github.io/v3-admin-vite) |
+| 位置         | 账号            | 链接                                                  |
+| ------------ | --------------- | ----------------------------------------------------- |
+| github-pages | admin 或 editor | [链接](https://un-pany.github.io/creative-collection) |
 
 ## ❤️ 用爱发电
 
@@ -69,10 +69,10 @@ V3 Admin Vite 是一个免费开源的中后台管理系统基础解决方案，
 3. pnpm 版本 8.x 或最新版
 
 # 克隆项目
-git clone https://github.com/un-pany/v3-admin-vite.git
+git clone https://github.com/un-pany/creative-collection.git
 
 # 进入项目目录
-cd v3-admin-vite
+cd creative-collection
 
 # 安装依赖
 pnpm i
@@ -137,8 +137,8 @@ pnpm test
 
 感谢所有的贡献者！
 
-<a href="https://github.com/un-pany/v3-admin-vite/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=un-pany/v3-admin-vite" />
+<a href="https://github.com/un-pany/creative-collection/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=un-pany/creative-collection" />
 </a>
 
 ## 💕 感谢 Star
@@ -147,7 +147,7 @@ pnpm test
 
 ## ☕ Donate
 
-[查看捐赠方式](https://github.com/un-pany/v3-admin-vite/issues/69)
+[查看捐赠方式](https://github.com/un-pany/creative-collection/issues/69)
 
 ## 可有可无的群
 
