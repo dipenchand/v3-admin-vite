@@ -20,12 +20,11 @@ const userStore = useUserStore()
 const settingsStore = useSettingsStore()
 const { showNotify } = storeToRefs(settingsStore)
 
-/** 切换侧边栏 */
 const toggleSidebar = () => {
   appStore.toggleSidebar(false)
 }
 
-/** 登出 */
+/** Logout */
 const logout = () => {
   userStore.logout()
   router.push("/login")

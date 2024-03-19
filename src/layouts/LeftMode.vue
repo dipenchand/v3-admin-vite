@@ -105,15 +105,6 @@ $transition-time: 0.35s;
   overflow: auto;
 }
 
-.hasTagsView {
-  .app-main {
-    min-height: calc(100vh - var(--cfm-header-height));
-  }
-  .fixed-header + .app-main {
-    padding-top: var(--cfm-header-height);
-  }
-}
-
 .hideSidebar {
   .sidebar-container {
     width: var(--cfm-sidebar-hide-width) !important;

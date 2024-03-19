@@ -1,13 +1,8 @@
-/** 全局 CSS 变量，这种变量不仅可以在 CSS 和 SCSS 中使用，还可以导入到 JS 中使用 */
 :root {
-  /** 全局背景色 */
   --cfm-body-bg-color: #f2f3f5;
-  /** Header 区域 = NavigationBar 组件 + TagsView 组件 */
-  --cfm-header-height: calc(var(--cfm-navigationbar-height) + var(--cfm-tagsview-height));
+  --cfm-header-height: calc(var(--cfm-navigationbar-height) + 20px);
   --cfm-header-bg-color: #ffffff;
-  /** NavigationBar 组件 */
   --cfm-navigationbar-height: 50px;
-  /** Sidebar 组件（左侧模式全部生效、顶部模式全部不生效、混合模式非颜色部分生效） */
   --cfm-sidebar-width: 220px;
   --cfm-sidebar-hide-width: 58px;
   --cfm-sidebar-menu-item-height: 60px;
@@ -16,29 +11,11 @@
   --cfm-sidebar-menu-hover-bg-color: #409eff10;
   --cfm-sidebar-menu-text-color: #c0c4cc;
   --cfm-sidebar-menu-active-text-color: #ffffff;
-  /** TagsView 组件 */
-  --cfm-tagsview-height: 34px;
-  --cfm-tagsview-tag-text-color: #495060;
-  --cfm-tagsview-tag-active-text-color: #ffffff;
-  --cfm-tagsview-tag-bg-color: #ffffff;
-  --cfm-tagsview-tag-active-bg-color: var(--el-color-primary);
-  --cfm-tagsview-tag-border-radius: 2px;
-  --cfm-tagsview-tag-border-color: #d8dce5;
-  --cfm-tagsview-tag-active-border-color: var(--el-color-primary);
-  --cfm-tagsview-tag-active-before-color: #ffffff;
-  --cfm-tagsview-tag-icon-hover-bg-color: #00000030;
-  --cfm-tagsview-tag-icon-hover-color: #ffffff;
-  /** RightPanel 组件  */
-  --cfm-rightpanel-button-bg-color: #001428;
 }
 
-/** 内容区放大时，将不需要的组件隐藏 */
 body.content-large {
-  /** Header 区域 = TagsView 组件 */
-  --cfm-header-height: var(--cfm-tagsview-height);
-  /** NavigationBar 组件 */
+  --cfm-header-height: 20px;
   --cfm-navigationbar-height: 0px;
-  /** Sidebar 组件 */
   --cfm-sidebar-width: 0px;
   --cfm-sidebar-hide-width: 0px;
 }

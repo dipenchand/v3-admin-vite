@@ -91,13 +91,4 @@ $transition-time: 0.35s;
     padding-left: var(--cfm-sidebar-hide-width);
   }
 }
-
-.hasTagsView {
-  .sidebar-container {
-    padding-top: var(--cfm-header-height);
-  }
-  .app-main {
-    padding-top: var(--cfm-header-height);
-  }
-}
 </style>
