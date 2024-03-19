@@ -5,8 +5,8 @@ import routeSettings from "@/config/route"
 const Layouts = () => import("@/layouts/index.vue")
 
 /**
- * 常驻路由
- * 除了 redirect/403/404/login 等隐藏页面，其他页面建议设置 Name 属性
+ * Home Route
+ * In addition to hidden pages such as redirect/403/404/login, it is recommended to set the Name attribute on other pages.
  */
 export const constantRoutes: RouteRecordRaw[] = [
   {
@@ -62,158 +62,17 @@ export const constantRoutes: RouteRecordRaw[] = [
     ]
   },
   {
-    path: "/unocss",
+    path: "/library",
     component: Layouts,
-    redirect: "/unocss/index",
+    redirect: "/library",
     children: [
       {
         path: "index",
         component: () => import("@/views/unocss/index.vue"),
-        name: "UnoCSS",
+        name: "Library",
         meta: {
-          title: "UnoCSS",
+          title: "Library",
           svgIcon: "unocss"
-        }
-      }
-    ]
-  },
-  {
-    path: "/link",
-    meta: {
-      title: "外链",
-      svgIcon: "link"
-    },
-    children: [
-      {
-        path: "https://juejin.cn/post/7089377403717287972",
-        component: () => {},
-        name: "Link1",
-        meta: {
-          title: "中文文档"
-        }
-      },
-      {
-        path: "https://juejin.cn/column/7207659644487139387",
-        component: () => {},
-        name: "Link2",
-        meta: {
-          title: "新手教程"
-        }
-      }
-    ]
-  },
-  {
-    path: "/menu",
-    component: Layouts,
-    redirect: "/menu/menu1",
-    name: "Menu",
-    meta: {
-      title: "多级路由",
-      svgIcon: "menu"
-    },
-    children: [
-      {
-        path: "menu1",
-        component: () => import("@/views/menu/menu1/index.vue"),
-        redirect: "/menu/menu1/menu1-1",
-        name: "Menu1",
-        meta: {
-          title: "menu1"
-        },
-        children: [
-          {
-            path: "menu1-1",
-            component: () => import("@/views/menu/menu1/menu1-1/index.vue"),
-            name: "Menu1-1",
-            meta: {
-              title: "menu1-1",
-              keepAlive: true
-            }
-          },
-          {
-            path: "menu1-2",
-            component: () => import("@/views/menu/menu1/menu1-2/index.vue"),
-            redirect: "/menu/menu1/menu1-2/menu1-2-1",
-            name: "Menu1-2",
-            meta: {
-              title: "menu1-2"
-            },
-            children: [
-              {
-                path: "menu1-2-1",
-                component: () => import("@/views/menu/menu1/menu1-2/menu1-2-1/index.vue"),
-                name: "Menu1-2-1",
-                meta: {
-                  title: "menu1-2-1",
-                  keepAlive: true
-                }
-              },
-              {
-                path: "menu1-2-2",
-                component: () => import("@/views/menu/menu1/menu1-2/menu1-2-2/index.vue"),
-                name: "Menu1-2-2",
-                meta: {
-                  title: "menu1-2-2",
-                  keepAlive: true
-                }
-              }
-            ]
-          },
-          {
-            path: "menu1-3",
-            component: () => import("@/views/menu/menu1/menu1-3/index.vue"),
-            name: "Menu1-3",
-            meta: {
-              title: "menu1-3",
-              keepAlive: true
-            }
-          }
-        ]
-      },
-      {
-        path: "menu2",
-        component: () => import("@/views/menu/menu2/index.vue"),
-        name: "Menu2",
-        meta: {
-          title: "menu2",
-          keepAlive: true
-        }
-      }
-    ]
-  },
-  {
-    path: "/hook-demo",
-    component: Layouts,
-    redirect: "/hook-demo/use-fetch-select",
-    name: "HookDemo",
-    meta: {
-      title: "Hook",
-      elIcon: "Menu",
-      alwaysShow: true
-    },
-    children: [
-      {
-        path: "use-fetch-select",
-        component: () => import("@/views/hook-demo/use-fetch-select.vue"),
-        name: "UseFetchSelect",
-        meta: {
-          title: "useFetchSelect"
-        }
-      },
-      {
-        path: "use-fullscreen-loading",
-        component: () => import("@/views/hook-demo/use-fullscreen-loading.vue"),
-        name: "UseFullscreenLoading",
-        meta: {
-          title: "useFullscreenLoading"
-        }
-      },
-      {
-        path: "use-watermark",
-        component: () => import("@/views/hook-demo/use-watermark.vue"),
-        name: "UseWatermark",
-        meta: {
-          title: "useWatermark"
         }
       }
     ]
@@ -221,9 +80,9 @@ export const constantRoutes: RouteRecordRaw[] = [
 ]
 
 /**
- * 动态路由
- * 用来放置有权限 (Roles 属性) 的路由
- * 必须带有 Name 属性
+ * Dynamic routing
+ * Used to place routes with permissions (Roles attribute)
+ * Must have Name attribute
  */
 export const dynamicRoutes: RouteRecordRaw[] = [
   {
@@ -232,10 +91,10 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     redirect: "/permission/page",
     name: "Permission",
     meta: {
-      title: "权限",
+      title: "Permissions",
       svgIcon: "lock",
-      roles: ["admin", "editor"], // 可以在根路由中设置角色
-      alwaysShow: true // 将始终显示根菜单
+      roles: ["admin", "editor"], // Roles can be set in the root route
+      alwaysShow: true // The root menu will always be shown
     },
     children: [
       {
@@ -243,8 +102,8 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/permission/page.vue"),
         name: "PagePermission",
         meta: {
-          title: "页面级",
-          roles: ["admin"] // 或者在子导航中设置角色
+          title: "Page Level",
+          roles: ["admin"] // Or set the role in the sub-navigation
         }
       },
       {
@@ -252,7 +111,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/permission/directive.vue"),
         name: "DirectivePermission",
         meta: {
-          title: "按钮级" // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
+          title: "Button Level" // If the role is not set, it means: the page does not require permissions, but will inherit the role of the root route.
         }
       }
     ]
@@ -264,9 +123,9 @@ const router = createRouter({
   routes: routeSettings.thirdLevelRouteCache ? flatMultiLevelRoutes(constantRoutes) : constantRoutes
 })
 
-/** 重置路由 */
+/** Reset routing */
 export function resetRouter() {
-  // 注意：所有动态路由路由必须带有 Name 属性，否则可能会不能完全重置干净
+  // Note: All dynamic routing routes must have the Name attribute, otherwise they may not be completely reset.
   try {
     router.getRoutes().forEach((route) => {
       const { name, meta } = route
@@ -275,7 +134,7 @@ export function resetRouter() {
       }
     })
   } catch {
-    // 强制刷新浏览器也行，只是交互体验不是很好
+    // It’s okay to force refresh the browser, but the interactive experience isn’t very good.
     window.location.reload()
   }
 }
