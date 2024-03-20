@@ -3,14 +3,10 @@ import useResize from "./hooks/useResize"
 import { useDevice } from "@/hooks/useDevice"
 import { AppMain, NavigationBar, Sidebar } from "@/layouts/components"
 import { computed } from "vue"
-import { storeToRefs } from "pinia"
 import { useAppStore } from "@/store/modules/app"
-import { useSettingsStore } from "@/store/modules/settings"
 
 const { isMobile } = useDevice()
 const appStore = useAppStore()
-const settingsStore = useSettingsStore()
-const { fixedHeader } = storeToRefs(settingsStore)
 
 const layoutClasses = computed(() => {
   return {
@@ -33,7 +29,7 @@ useResize()
     <div v-if="layoutClasses.mobile && layoutClasses.openSidebar" class="drawer-bg" @click="handleClickOutside" />
     <Sidebar class="sidebar-container" />
     <div class="main-container">
-      <div :class="{ 'fixed-header': fixedHeader }" class="layout-header">
+      <div class="fixed-header layout-header">
         <NavigationBar />
       </div>
       <AppMain class="app-main" />

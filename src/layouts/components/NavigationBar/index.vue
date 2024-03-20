@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { useRouter } from "vue-router"
-import { storeToRefs } from "pinia"
 import { useAppStore } from "@/store/modules/app"
-import { useSettingsStore } from "@/store/modules/settings"
 import { useUserStore } from "@/store/modules/user"
 import { UserFilled } from "@element-plus/icons-vue"
 import Hamburger from "../Hamburger/index.vue"
@@ -15,8 +13,6 @@ const { isMobile } = useDevice()
 const router = useRouter()
 const appStore = useAppStore()
 const userStore = useUserStore()
-const settingsStore = useSettingsStore()
-const { showNotify } = storeToRefs(settingsStore)
 
 const toggleSidebar = () => {
   appStore.toggleSidebar(false)
@@ -35,7 +31,7 @@ const logout = () => {
     <Breadcrumb v-if="!isMobile" class="breadcrumb" />
     <Sidebar v-if="isMobile" class="sidebar" />
     <div class="right-menu">
-      <Notify v-if="showNotify" class="right-menu-item" />
+      <Notify class="right-menu-item" />
       <el-dropdown class="right-menu-item">
         <div class="right-menu-avatar">
           <el-avatar :icon="UserFilled" :size="30" />
