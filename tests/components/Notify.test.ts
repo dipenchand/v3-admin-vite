@@ -4,14 +4,14 @@ import Notify from "@/components/Notify/index.vue"
 import NotifyList from "@/components/Notify/NotifyList.vue"
 
 describe("Notify", () => {
-  it("正常渲染", () => {
+  it("Normal rendering", () => {
     const wrapper = shallowMount(Notify)
     expect(wrapper.classes("notify")).toBe(true)
   })
 })
 
 describe("NotifyList", () => {
-  it("List 长度为 0", () => {
+  it("List length is 0", () => {
     const wrapper = shallowMount(NotifyList, {
       props: {
         list: []
@@ -19,7 +19,7 @@ describe("NotifyList", () => {
     })
     expect(wrapper.find("el-empty").exists()).toBe(true)
   })
-  it("List 长度不为 0", () => {
+  it("List length is not 0", () => {
     const wrapper = shallowMount(NotifyList, {
       props: {
         list: [
