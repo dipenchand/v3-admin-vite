@@ -3,50 +3,33 @@ import { ref, computed } from "vue"
 import { ElMessage } from "element-plus"
 import { Bell } from "@element-plus/icons-vue"
 import NotifyList from "./NotifyList.vue"
-import { type ListItem, notifyData, messageData, todoData } from "./data"
-
-type TabName = "通知" | "消息" | "待办"
+import { type ListItem, messageData } from "./data"
 
 interface DataItem {
-  name: TabName
   type: "primary" | "success" | "warning" | "danger" | "info"
   list: ListItem[]
 }
 
-/** 角标当前值 */
+/** The current value of the index */
 const badgeValue = computed(() => {
   return data.value.reduce((sum, item) => sum + item.list.length, 0)
 })
-/** 角标最大值 */
+/** Maximum value of corner mark */
 const badgeMax = 99
-/** 面板宽度 */
+/** Panel width */
 const popoverWidth = 350
-/** 当前 Tab */
-const activeName = ref<TabName>("通知")
-/** 所有数据 */
+/** All data */
 const data = ref<DataItem[]>([
-  // 通知数据
+  // Message Data
   {
-    name: "通知",
-    type: "primary",
-    list: notifyData
-  },
-  // 消息数据
-  {
-    name: "消息",
+    name: "Information",
     type: "danger",
     list: messageData
-  },
-  // 待办数据
-  {
-    name: "待办",
-    type: "warning",
-    list: todoData
   }
 ])
 
 const handleHistory = () => {
-  ElMessage.success(`跳转到${activeName.value}历史页面`)
+  ElMessage.success(`Redirect to Library`)
 }
 </script>
 
@@ -55,7 +38,7 @@ const handleHistory = () => {
     <el-popover placement="bottom" :width="popoverWidth" trigger="click">
       <template #reference>
         <el-badge :value="badgeValue" :max="badgeMax" :hidden="badgeValue === 0">
-          <el-tooltip effect="dark" content="消息通知" placement="bottom">
+          <el-tooltip effect="dark" content="Notification" placement="bottom">
             <el-icon :size="20">
               <Bell />
             </el-icon>
@@ -63,19 +46,17 @@ const handleHistory = () => {
         </el-badge>
       </template>
       <template #default>
-        <el-tabs v-model="activeName" class="demo-tabs" stretch>
-          <el-tab-pane v-for="(item, index) in data" :name="item.name" :key="index">
-            <template #label>
-              {{ item.name }}
-              <el-badge :value="item.list.length" :max="badgeMax" :type="item.type" />
-            </template>
-            <el-scrollbar height="400px">
-              <NotifyList :list="item.list" />
-            </el-scrollbar>
-          </el-tab-pane>
-        </el-tabs>
+        <div v-for="(item, index) in data" :name="item.name" :key="index">
+          <slot>
+            {{ item.name }}
+            <el-badge :value="item.list.length" :max="badgeMax" :type="item.type" />
+          </slot>
+          <el-scrollbar height="400px">
+            <NotifyList :list="item.list" />
+          </el-scrollbar>
+        </div>
         <div class="notify-history">
-          <el-button link @click="handleHistory">查看{{ activeName }}历史</el-button>
+          <el-button link @click="handleHistory">Check Info History</el-button>
         </div>
       </template>
     </el-popover>

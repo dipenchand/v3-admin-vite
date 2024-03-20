@@ -68,7 +68,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "index",
-        component: () => import("@/views/unocss/index.vue"),
+        component: () => import("@/views/library/index.vue"),
         name: "Library",
         meta: {
           title: "Library",
