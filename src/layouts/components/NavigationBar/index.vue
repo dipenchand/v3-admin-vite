@@ -10,10 +10,8 @@ import Breadcrumb from "../Breadcrumb/index.vue"
 import Sidebar from "../Sidebar/index.vue"
 import Notify from "@/components/Notify/index.vue"
 import { useDevice } from "@/hooks/useDevice"
-import { useLayoutMode } from "@/hooks/useLayoutMode"
 
 const { isMobile } = useDevice()
-const { isTop } = useLayoutMode()
 const router = useRouter()
 const appStore = useAppStore()
 const userStore = useUserStore()
@@ -33,14 +31,9 @@ const logout = () => {
 
 <template>
   <div class="navigation-bar">
-    <Hamburger
-      v-if="!isTop || isMobile"
-      :is-active="appStore.sidebar.opened"
-      class="hamburger"
-      @toggle-click="toggleSidebar"
-    />
-    <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" />
-    <Sidebar v-if="isTop && !isMobile" class="sidebar" />
+    <Hamburger :is-active="appStore.sidebar.opened" class="hamburger" @toggle-click="toggleSidebar" />
+    <Breadcrumb v-if="!isMobile" class="breadcrumb" />
+    <Sidebar v-if="isMobile" class="sidebar" />
     <div class="right-menu">
       <Notify v-if="showNotify" class="right-menu-item" />
       <el-dropdown class="right-menu-item">
@@ -89,8 +82,8 @@ const logout = () => {
   }
   .sidebar {
     flex: 1;
-    // 设置 min-width 是为了让 Sidebar 里的 el-menu 宽度自适应
-    min-width: 0px;
+    // Setting min-width is to make the width of el-menu in Sidebar adaptive.
+    min-width: 0;
     :deep(.el-menu) {
       background-color: transparent;
     }

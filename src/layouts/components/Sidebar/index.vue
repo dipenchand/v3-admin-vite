@@ -6,16 +6,12 @@ import { usePermissionStore } from "@/store/modules/permission"
 import { useSettingsStore } from "@/store/modules/settings"
 import SidebarItem from "./SidebarItem.vue"
 import Logo from "../Logo/index.vue"
-import { useDevice } from "@/hooks/useDevice"
-import { useLayoutMode } from "@/hooks/useLayoutMode"
 import { getCssVariableValue } from "@/utils"
 
 const v3SidebarMenuBgColor = getCssVariableValue("--cfm-sidebar-menu-bg-color")
 const v3SidebarMenuTextColor = getCssVariableValue("--cfm-sidebar-menu-text-color")
 const v3SidebarMenuActiveTextColor = getCssVariableValue("--cfm-sidebar-menu-active-text-color")
 
-const { isMobile } = useDevice()
-const { isLeft, isTop } = useLayoutMode()
 const route = useRoute()
 const appStore = useAppStore()
 const permissionStore = usePermissionStore()
@@ -30,22 +26,22 @@ const activeMenu = computed(() => {
 })
 const noHiddenRoutes = computed(() => permissionStore.routes.filter((item) => !item.meta?.hidden))
 const isCollapse = computed(() => !appStore.sidebar.opened)
-const isLogo = computed(() => isLeft.value && settingsStore.showLogo)
-const backgroundColor = computed(() => (isLeft.value ? v3SidebarMenuBgColor : undefined))
-const textColor = computed(() => (isLeft.value ? v3SidebarMenuTextColor : undefined))
-const activeTextColor = computed(() => (isLeft.value ? v3SidebarMenuActiveTextColor : undefined))
+const isLogo = computed(() => settingsStore.showLogo)
+const backgroundColor = computed(() => v3SidebarMenuBgColor)
+const textColor = computed(() => v3SidebarMenuTextColor)
+const activeTextColor = computed(() => v3SidebarMenuActiveTextColor)
 const sidebarMenuItemHeight = computed(() => {
-  return !isTop.value ? "var(--cfm-sidebar-menu-item-height)" : "var(--cfm-navigationbar-height)"
+  return "var(--cfm-sidebar-menu-item-height)" // or "var(--cfm-navigationbar-height)"
 })
 const sidebarMenuHoverBgColor = computed(() => {
-  return !isTop.value ? "var(--cfm-sidebar-menu-hover-bg-color)" : "transparent"
+  return "var(--cfm-sidebar-menu-hover-bg-color)" // or "transparent"
 })
 const tipLineWidth = computed(() => {
-  return !isTop.value ? "2px" : "0px"
+  return "2px"
 })
 // Hide vertical scrollbar when in top mode
 const hiddenScrollbarVerticalBar = computed(() => {
-  return isTop.value ? "none" : "block"
+  return "none" // or "block"
 })
 </script>
 
@@ -55,13 +51,13 @@ const hiddenScrollbarVerticalBar = computed(() => {
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
-        :collapse="isCollapse && !isTop"
+        :collapse="isCollapse"
         :background-color="backgroundColor"
         :text-color="textColor"
         :active-text-color="activeTextColor"
         :unique-opened="true"
         :collapse-transition="false"
-        :mode="isTop && !isMobile ? 'horizontal' : 'vertical'"
+        mode="vertical"
       >
         <SidebarItem v-for="route in noHiddenRoutes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>

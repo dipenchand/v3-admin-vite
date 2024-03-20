@@ -23,7 +23,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
     server: {
       host: VITE_HOST,
       port: VITE_PORT,
-      open: false,
+      open: true,
       cors: true,
       strictPort: false,
       proxy: {
