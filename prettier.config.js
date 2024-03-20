@@ -1,22 +1,21 @@
 /**
- * 修改配置后重启编辑器
- * 配置项文档：https://prettier.io/docs/en/configuration.html
+ * Config Docs：https://prettier.io/docs/en/configuration.html
  * @type {import("prettier").Config}
  */
 
 export default {
-  /** 每一行的宽度 */
+  /** Width of each row */
   printWidth: 120,
-  /** 在对象中的括号之间是否用空格来间隔 */
+  /** Whether to use spaces between parentheses in objects */
   bracketSpacing: true,
-  /** 箭头函数的参数无论有几个，都要括号包裹 */
+  /** No matter how many parameters there are in an arrow function, they must be wrapped in parentheses. */
   arrowParens: "always",
-  /** 换行符的使用 */
+  /** Use of line breaks */
   endOfLine: "auto",
-  /** 是否采用单引号 */
+  /** Whether to use single quotes */
   singleQuote: false,
-  /** 对象或者数组的最后一个元素后面不要加逗号 */
+  /** Do not add a comma after the last element of an object or array */
   trailingComma: "none",
-  /** 是否加分号 */
+  /** Whether to add a semicolon */
   semi: false
 }

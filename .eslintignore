@@ -1,4 +1,4 @@
-# Eslint 会忽略的文件
+# Files that Eslint will ignore
 
 .DS_Store
 node_modules

@@ -1,4 +1,4 @@
-/** 所有 api 接口的响应数据都应该准守该格式 */
+/** The response data of all api interfaces should adhere to this format */
 interface ApiResponseData<T> {
   code: number
   data: T

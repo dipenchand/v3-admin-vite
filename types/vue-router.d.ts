@@ -3,49 +3,49 @@ import "vue-router"
 declare module "vue-router" {
   interface RouteMeta {
     /**
-     * 设置该路由在侧边栏和面包屑中展示的名字
+     * Set the name of the route displayed in the sidebar and breadcrumbs
      */
     title?: string
     /**
-     * 设置该路由的图标，记得将 svg 导入 @/icons/svg
+     * Set the icon of the route, remember to import svg @/icons/svg
      */
     svgIcon?: string
     /**
-     * 设置该路由的图标，直接使用 Element Plus 的 Icon（与 svgIcon 同时设置时，svgIcon 将优先生效）
+     * To set the icon of this route, directly use the Icon of Element Plus (when set at the same time as svgIcon, svgIcon will take effect first)
      */
     elIcon?: string
     /**
-     * 默认 false，设置 true 的时候该路由不会在侧边栏出现
+     * The default is false. When set to true, the route will not appear in the sidebar.
      */
     hidden?: boolean
     /**
-     * 设置能进入该路由的角色，支持多个角色叠加
+     * Set the roles that can enter the route and support the superposition of multiple roles.
      */
     roles?: string[]
     /**
-     * 默认 true，如果设置为 false，则不会在面包屑中显示
+     * Defaults to true, if set to false, it will not be displayed in breadcrumbs
      */
     breadcrumb?: boolean
     /**
-     * 默认 false，如果设置为 true，它则会固定在 tags-view 中
+     * Default false
      */
     affix?: boolean
     /**
-     * 当一个路由下面的 children 声明的路由大于 1 个时，自动会变成嵌套的模式，
-     * 只有一个时，会将那个子路由当做根路由显示在侧边栏，
-     * 若想不管路由下面的 children 声明的个数都显示你的根路由，
-     * 可以设置 alwaysShow: true，这样就会忽略之前定义的规则，一直显示根路由
+     * When there are more than 1 routes declared by children under a route, it will automatically become a nested mode.，
+     * When there is only one, that sub-route will be displayed in the sidebar as the root route，
+     * If you want to display your root route regardless of the number of children declared under the route，
+     * You can set `alwaysShow: true`, so that the previously defined rules will be ignored and the root route will always be displayed
      */
     alwaysShow?: boolean
     /**
-     * 示例: activeMenu: "/xxx/xxx"，
-     * 当设置了该属性进入路由时，则会高亮 activeMenu 属性对应的侧边栏。
-     * 该属性适合使用在有 hidden: true 属性的路由上
+     * Example: activeMenu: "/xxx/xxx"，
+     * When entering routing with this attribute set, the sidebar corresponding to the activeMenu attribute will be highlighted.
+     * This attribute is suitable for use on routes with the hidden: true attribute
      */
     activeMenu?: string
     /**
-     * 是否缓存该路由页面
-     * 默认为 false，为 true 时代表需要缓存，此时该路由和该页面都需要设置一致的 Name
+     * Whether to cache this routing page
+     * The default is false. When it is true, it means caching is required. At this time, both the route and the page need to set a consistent Name.
      */
     keepAlive?: boolean
   }
