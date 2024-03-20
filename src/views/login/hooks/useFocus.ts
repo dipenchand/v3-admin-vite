@@ -1,14 +1,18 @@
 import { ref } from "vue"
 
 export function useFocus() {
-  /** 是否有焦点 */
   const isFocus = ref<boolean>(false)
 
-  /** 失去焦点 */
+  /**
+   * Handles the blur event (lose focus) for the input element.
+   */
   const handleBlur = () => {
     isFocus.value = false
   }
-  /** 获取焦点 */
+
+  /**
+   * Handles the focus event.
+   */
   const handleFocus = () => {
     isFocus.value = true
   }
