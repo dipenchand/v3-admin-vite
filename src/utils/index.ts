@@ -26,9 +26,3 @@ export const setCssVariableValue = (cssVariableName: string, cssVariableValue: s
     console.error(error)
   }
 }
-
-/** Reset configuration */
-// export const resetConfigLayout = () => {
-//   removeConfigLayout()
-//   location.reload()
-// }
