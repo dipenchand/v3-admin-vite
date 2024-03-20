@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    /** https://cn.vitejs.dev/guide/features.html#typescript-compiler-options */
+    /** https://vitejs.dev/guide/features.html#typescript-compiler-options */
     "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "bundler",
-    /** TS 严格模式 */
+    /** TS strict mode */
     "strict": true,
     "jsx": "preserve",
     "jsxImportSource": "vue",
@@ -14,7 +14,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    /** https://cn.vitejs.dev/guide/features.html#typescript-compiler-options */
+    /** https://vitejs.dev/guide/features.html#typescript-compiler-options */
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
@@ -22,13 +22,17 @@
     "types": [
       "node",
       "vite/client",
-      /** Element Plus 的 Volar 插件支持 */
+      /** Volar plugin support for Element Plus */
       "element-plus/global",
       "vitest"
     ],
-    /** baseUrl 用来告诉编译器到哪里去查找模块，使用非相对模块时必须配置此项 */
+    /** baseUrl is used to tell the compiler where to find the module.
+    This must be configured when using non-relative modules.
+    */
     "baseUrl": ".",
-    /** 非相对模块导入的路径映射配置，根据 baseUrl 配置进行路径计算 */
+    /** Path mapping configuration for non-relative module import,
+    path calculation based on baseUrl configuration
+    */
     "paths": {
       "@/*": ["src/*"]
     }
@@ -43,6 +47,6 @@
     "vite.config.ts",
     "vitest.config.ts"
   ],
-  /** 编译器默认排除的编译文件 */
+  /** Compiled files excluded by the compiler by default */
   "exclude": ["node_modules", "dist"]
 }

@@ -76,6 +76,22 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       }
     ]
+  },
+  {
+    path: "/app-settings",
+    component: Layouts,
+    redirect: "/app-settings",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/app-settings/index.vue"),
+        name: "App Settings",
+        meta: {
+          title: "App Settings",
+          svgIcon: "unocss"
+        }
+      }
+    ]
   }
 ]
 
@@ -85,37 +101,29 @@ export const constantRoutes: RouteRecordRaw[] = [
  * Must have Name attribute
  */
 export const dynamicRoutes: RouteRecordRaw[] = [
-  {
-    path: "/permission",
-    component: Layouts,
-    redirect: "/permission/page",
-    name: "Permission",
-    meta: {
-      title: "Permissions",
-      svgIcon: "lock",
-      roles: ["admin", "editor"], // Roles can be set in the root route
-      alwaysShow: true // The root menu will always be shown
-    },
-    children: [
-      {
-        path: "page",
-        component: () => import("@/views/permission/page.vue"),
-        name: "PagePermission",
-        meta: {
-          title: "Page Level",
-          roles: ["admin"] // Or set the role in the sub-navigation
-        }
-      },
-      {
-        path: "directive",
-        component: () => import("@/views/permission/directive.vue"),
-        name: "DirectivePermission",
-        meta: {
-          title: "Button Level" // If the role is not set, it means: the page does not require permissions, but will inherit the role of the root route.
-        }
-      }
-    ]
-  }
+  //   {
+  //     path: "/permission",
+  //     component: Layouts,
+  //     redirect: "/permission/page",
+  //     name: "Permission",
+  //     meta: {
+  //       title: "Permissions",
+  //       svgIcon: "lock",
+  //       roles: ["admin", "editor"], // Roles can be set in the root route
+  //       alwaysShow: true // The root menu will always be shown
+  //     },
+  //     children: [
+  //       {
+  //         path: "page",
+  //         component: () => import("@/views/permission/page.vue"),
+  //         name: "PagePermission",
+  //         meta: {
+  //           title: "Page Level",
+  //           roles: ["admin"] // Or set the role in the sub-navigation
+  //         }
+  //       }
+  //     ]
+  //   }
 ]
 
 const router = createRouter({
